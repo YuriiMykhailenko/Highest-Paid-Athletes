@@ -1,1 +1,102 @@
+:root {
+  --image-radius: 200px;
+  --rank-bg-radius: 32px;
+  --inline-margin: 10px;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.people {
+  padding: 30px 35px 155px 35px;
+  display: grid;
+  grid-template-columns: repeat(2, var(--image-radius));
+  justify-content: center;
+  gap: 40px 30px;
+  margin: 0 auto;
+  max-width: 1000px;
+
+  
+  @media (min-width: 1000px) {
+    & {
+      grid-template-columns: repeat(4, var(--image-radius));
+    }
+  }
+}
+
+.person {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+
+  transition: transform 1s linear;
+  
+  &:hover {
+    transform: scale(1.25);
+    background-color: #eee;
+  }
+
+  &:hover .image{ 
+    border-radius: 60px;
+  }
+}
+
+.photo {
+  position: relative;
+}
+
+.image {
+  display: block;
+  border-radius: 50%;
+  height: var(--image-radius);
+  width: var(--image-radius);
+
+  margin-bottom: 8px;
+
+  transition: all 1s linear;
+}
+
+.name {
+  font-size: 20px;
+  line-height: 23px;
+  color: #2F4F4F;
+  
+  margin-bottom: 9px;
+}
+
+.extra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21.6px;
+  line-height: 24.84px;
+  color: #000000;
+}
+
+.sport {
+  margin-right: 5px;
+}
+
+.rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  line-height: 18.4px;
+  position: absolute;
+  top: calc((var(--image-radius) / 2) - (var(--rank-bg-radius) / 2));
+  right: 10px;
+  height: var(--rank-bg-radius);
+  width: var(--rank-bg-radius);
+  color: #8B0000;
+  border-radius: 50%;
+  background-color: #fff;
+}
